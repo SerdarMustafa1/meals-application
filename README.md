@@ -1,5 +1,5 @@
 # Meals
-Locate-Me is a simple application to help teach young kids how to effectively wash their hands, built using React Native and Expo.
+Meals is a simple recipe app, built using React Native and Expo.
 
 <!-- ![App Preview](assets/preview.gif) -->
 
