@@ -50,3 +50,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
+# meals-application
