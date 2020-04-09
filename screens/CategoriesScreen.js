@@ -20,8 +20,7 @@ const CategoriesScreen = props => {
           props.navigation.navigate({
             routeName: "CategoryMeals",
             params: {
-              categoryID: itemData.item.id,
-              categoryTitle: itemData.item.title
+              categoryId: itemData.item.id
             }
           });
         }}
