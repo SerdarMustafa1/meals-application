@@ -1,7 +1,8 @@
 # Meals
+
 Meals is a simple recipe app, built using React Native and Expo.
 
-<!-- ![App Preview](assets/preview.gif) -->
+![App Preview](assets/recipes.gif)
 
 ### Preview coming soon
 
@@ -41,8 +42,6 @@ To run on an iOS simulator, follow the instructions available on the [Expo websi
 
 ## Dependencies:
 
-
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -50,4 +49,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
+
 # meals-application
