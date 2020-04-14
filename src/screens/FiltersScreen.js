@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, Text, StyleSheet, Switch, Platform } from "react-native";
-
+import { View, Text, StyleSheet, Switch, Platform, Alert } from "react-native";
+import { useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import Colors from "../constants/Colors";
+import { setFilters } from "../store/actions/meals";
 
 const FilterSwitch = (props) => {
   return (
@@ -27,6 +28,8 @@ const FiltersScreen = (props) => {
   const [isVegan, setIsVegan] = useState(false);
   const [isVegetarian, setIsVegetarian] = useState(false);
 
+  const dispatch = useDispatch();
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
@@ -34,7 +37,8 @@ const FiltersScreen = (props) => {
       vegan: isVegan,
       vegetarian: isVegetarian,
     };
-  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
+    dispatch(setFilters(appliedFilters));
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
 
   useEffect(() => {
     navigation.setParams({ save: saveFilters });
@@ -68,6 +72,21 @@ const FiltersScreen = (props) => {
 };
 
 FiltersScreen.navigationOptions = (navData) => {
+  saveFilter = () => {
+    return Alert.alert(
+      "Save Preferences",
+      "Would you like to save?",
+      [
+        {
+          text: "Cancel",
+          // onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "OK", onPress: navData.navigation.getParam("save") },
+      ],
+      { cancelable: false }
+    );
+  };
   return {
     headerTitle: "Filter Meals",
     headerLeft: (
@@ -83,11 +102,7 @@ FiltersScreen.navigationOptions = (navData) => {
     ),
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Save"
-          iconName="ios-save"
-          onPress={navData.navigation.getParam("save")}
-        />
+        <Item title="Save" iconName="ios-save" onPress={saveFilter} />
       </HeaderButtons>
     ),
   };
