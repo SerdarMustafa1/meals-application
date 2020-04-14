@@ -4,8 +4,6 @@ Meals is a simple recipe app, built using React Native and Expo.
 
 ![App Preview](assets/recipes.gif)
 
-### Preview coming soon
-
 ## Installation
 
 Clone the repo
